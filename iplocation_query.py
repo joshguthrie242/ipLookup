@@ -6,7 +6,7 @@ def lookup_ip(ip):
 
     url = f"https://api.iplocation.net/?ip={ip}"
     try:
-        response = requests.get(url, verify=certifi.where())
+        response = requests.get(url, verify='/etc/ssl/certs/ZscalerRootCA.crt')
         response.raise_for_status()
         print(response.text)
     except requests.exceptions.SSLError as e:
